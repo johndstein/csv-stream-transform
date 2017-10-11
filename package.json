@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/johndstein/csv-stream-transform/issues"
   },
-  "homepage": "https://github.com/johndstein/csv-stream-transform#readme"
+  "homepage": "https://github.com/johndstein/csv-stream-transform#readme",
+  "dependencies": {
+    "csv-parse": "1.2.4",
+    "csv-stringify": "1.0.4"
+  }
 }
