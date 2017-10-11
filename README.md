@@ -28,7 +28,7 @@ The following command will clone joe and nancy, make them much more important,
 
 // This is just an example file to show you how to use csv-stream-transform.
 
-require('./')({
+require('csv-stream-transform')({
   transform(row, cb) {
     const o = {};
     o.Name = row.person.toUpperCase();
