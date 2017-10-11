@@ -13,21 +13,27 @@ require('./')({
     this.push(o);
     cb(null);
   },
-  // Flush isn't required. This flush method is a no-op.
+  // flush is optional.
+  // defaults to no-op.
   flush(cb) {
     cb();
   },
+  // parse is optional.
+  // defaults to { columns: true }
   // See http://csv.adaltas.com/parse for all options.
   parse: {
     delimiter: '\t'
   },
+  // stringify is optional.
+  // defaults to { header: true }
   // See http://csv.adaltas.com/stringify for all options.
   stringify: {
     // delimiter: '\t'
   },
-  // You don't need to specify stdin or stdout here as they are the
-  // defaults. We just included this to show how you can specify which
-  // streams you want to use.
+  // in is optional.
+  // defaults to process.stdin
   in: process.stdin,
+  // out is optional.
+  // defaults to process.stdout
   out: process.stdout
 });
