@@ -2,6 +2,8 @@
 
 Node.js module for stream transforming CSV.
 
+This is a very thin wrapper around `csv-parse` and `csv-stringify`.
+
 ## Install
 
 ```
