@@ -1,0 +1,24 @@
+{
+  "name": "csv-stream-transform",
+  "version": "0.0.0",
+  "description": "Transform CSV stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johndstein/csv-stream-transform.git"
+  },
+  "keywords": [
+    "CSV",
+    "transform",
+    "stream"
+  ],
+  "author": "John Stein",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/johndstein/csv-stream-transform/issues"
+  },
+  "homepage": "https://github.com/johndstein/csv-stream-transform#readme"
+}
