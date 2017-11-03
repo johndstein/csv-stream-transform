@@ -52,7 +52,7 @@ require('csv-stream-transform')({
   // defaults to { header: true }
   // See http://csv.adaltas.com/stringify for all options.
   stringify: {
-    // delimiter: '\t'
+    // delimiter: ','
   },
   // in is optional.
   // defaults to process.stdin
