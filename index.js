@@ -1,5 +1,10 @@
 'use strict';
 
+function handle(err) {
+  console.error(err.stack || err);
+  process.exit(3);
+}
+
 exports = module.exports = function(opts) {
   const parser = require('csv-parse')(
     Object.assign({
@@ -22,9 +27,9 @@ exports = module.exports = function(opts) {
     },
     objectMode: true
   });
-  (opts.in || process.stdin)
-    .pipe(parser)
-    .pipe(transformer)
-    .pipe(stringer)
-    .pipe(opts.out || process.stdout);
+  (opts.in || process.stdin).on('error', handle)
+    .pipe(parser).on('error', handle)
+    .pipe(transformer).on('error', handle)
+    .pipe(stringer).on('error', handle)
+    .pipe(opts.out || process.stdout).on('error', handle);
 };
