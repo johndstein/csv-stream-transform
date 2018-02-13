@@ -59,7 +59,11 @@ require('csv-stream-transform')({
   in: process.stdin,
   // out is optional.
   // defaults to process.stdout
-  out: process.stdout
+  out: process.stdout,
+  // finish defaults to a no-op function.
+  // if you want something to happen on finish you can
+  // include it here.
+  finish: () => { console.error('we are finished'); }
 });
 ```
 
