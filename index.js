@@ -6,6 +6,7 @@ function handle(err) {
 }
 
 exports = module.exports = function(opts) {
+  opts.finish = opts.finish || (() => {});
   const parser = require('csv-parse')(
     Object.assign({
       columns: true
@@ -31,5 +32,6 @@ exports = module.exports = function(opts) {
     .pipe(parser).on('error', handle)
     .pipe(transformer).on('error', handle)
     .pipe(stringer).on('error', handle)
+    .on('finish', opts.finish)
     .pipe(opts.out || process.stdout).on('error', handle);
 };

@@ -35,5 +35,8 @@ require('./')({
   in: process.stdin,
   // out is optional.
   // defaults to process.stdout
-  out: process.stdout
+  out: process.stdout,
+  finish: () => {
+    console.error('FINISHED!!!')
+  }
 });
