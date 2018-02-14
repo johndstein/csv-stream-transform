@@ -60,6 +60,7 @@ require('csv-stream-transform')({
   in: process.stdin,
   // out is optional.
   // defaults to process.stdout
+  // if out === 'NOOUT' we stop after transform and don't pipe to out.
   out: process.stdout,
   // finish defaults to a no-op function.
   // if you want something to happen on finish you can

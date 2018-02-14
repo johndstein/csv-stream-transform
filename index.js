@@ -28,10 +28,17 @@ exports = module.exports = function(opts) {
     },
     objectMode: true
   });
-  (opts.in || process.stdin).on('error', handle)
-    .pipe(parser).on('error', handle)
-    .pipe(transformer).on('error', handle)
-    .pipe(stringer).on('error', handle)
-    .on('finish', opts.finish)
-    .pipe(opts.out || process.stdout).on('error', handle);
+  if (opts.out === 'NOOUT') {
+    (opts.in || process.stdin).on('error', handle)
+      .pipe(parser).on('error', handle)
+      .pipe(transformer).on('error', handle)
+      .on('finish', opts.finish)
+  } else {
+    (opts.in || process.stdin).on('error', handle)
+      .pipe(parser).on('error', handle)
+      .pipe(transformer).on('error', handle)
+      .pipe(stringer).on('error', handle)
+      .on('finish', opts.finish)
+      .pipe(opts.out || process.stdout).on('error', handle);
+  }
 };
